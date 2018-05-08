@@ -1,0 +1,137 @@
+//
+//  PrefixHeader.pch
+//  MMTCB
+//
+//  Created by 李文强 on 2018/4/24.
+//  Copyright © 2018年 李文强. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//----------引入库-----------
+#ifdef __OBJC__
+#import "Error+KF.h"
+#import "SafeControl.h"
+//#import "Network.h"
+#import "UserInfo.h"
+#import "Const.h"
+#import "UIColor+Hex.h"
+#import "SVProgressHUD.h"
+#import "MJExtension.h"
+//#import "CheckTextManager.h"
+#import "UIView+Frame.h"
+//#import <UIImageView+WebCache.h>
+//#import <uiimv>
+//#import "uiimage"#
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIBarButtonItem+Button.h"
+#import "UIImage+Render.h"
+#import "UITableViewController+UITableViewController_showInfo_.h"
+#import "UITableViewController+Category.h"
+#import "UIControl+Additions.h"
+#import "UIView+Extension.h"
+#import "UIImage+Image.h"
+#import "UIScrollView+LQRefresh.h"
+#import "NSString+AddStar.h"
+//#import "UMMobClick/MobClick.h"
+#import "LPHttpTool.h"
+#import "LPAppInterface.h"
+//#import "PH_UserModel.h"
+//#import "PHUser.h"
+//#import "LPAppInterface.h"
+//@implementation LPAppInterface
+
+//tableView 数据为空
+#import "UIScrollView+EmptyDataSet.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+
+#import "Network.h"
+
+#endif
+
+//#import "UIImage+GIF.h"
+//#import "MLEmojiLabel.h"
+//#import "QMDateManager.h"
+
+
+//----------功能宏-----------
+#define hudHH 30
+#define hudBackgroundColor [UIColor colorWithHexString:@"#101e34" alpha:0.6]
+//[UIColor colorWithHexString:@"#D4D4D4"]
+
+//#define naviBarH 64
+//#define tabBarH 49
+#define naviBarH ([[UIApplication sharedApplication] statusBarFrame].size.height + 44)
+
+#define tabBarH ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
+
+//获取屏幕长宽
+#define ScreemW [UIScreen mainScreen].bounds.size.width
+#define ScreemH [UIScreen mainScreen].bounds.size.height
+#define ScreemH_NoNavi ScreemH-naviBarH
+#define ScreemH_NoNavi_Tab ScreemH-naviBarH-tabBarH
+
+#define kScreenWidth [[UIScreen mainScreen] bounds].size.width
+
+#define kMainCellColor [UIColor colorWithRed:248/255.0 green:248/255.0 blue:255/255.0 alpha:1]
+
+#define kInputViewHeight 50
+
+#define QM_IS_IPHONEX (([[UIScreen mainScreen] bounds].size.height-812)?NO:YES)
+
+#define kScreenHeight (QM_IS_IPHONEX ? ([[UIScreen mainScreen] bounds].size.height - 34) : ([[UIScreen mainScreen] bounds].size.height))
+
+#define UserDefaults [NSUserDefaults standardUserDefaults]
+
+#define AboveIOS9  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+
+#define AboveIOS8  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+
+//发布不打印Screem
+#ifdef DEBUG
+#if TARGET_IPHONE_SIMULATOR//模拟器
+
+#define NSLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+
+#elif TARGET_OS_IPHONE//真机
+
+#define NSLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+
+//#define NSLog(...) fprintf(stderr,"[%s-%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:@"%@", ##__VA_ARGS__] UTF8String]);
+
+#endif
+
+#else
+
+//正式发布
+#ifdef zhengShiFaBu
+
+#define NSLog(...)
+
+#else
+
+#define NSLog(...) NSLog(__VA_ARGS__)
+
+#endif
+
+#endif
+
+#ifndef weakify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+#endif
+#endif
+#endif
+
+#endif /* PrefixHeader_pch */

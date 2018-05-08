@@ -1,0 +1,13 @@
+platform :ios,'8.0'
+target "MMTCB" do
+pod 'MJExtension', '~> 3.0.10'
+pod 'AFNetworking', '~> 3.1.0'
+pod 'SVProgressHUD’
+pod 'SDWebImage', '~> 4.0.0'
+pod 'IQKeyboardManager'
+pod 'SDAutoLayout'
+pod 'YYText'
+pod 'MJRefresh'
+pod 'Realm'
+pod 'DZNEmptyDataSet'
+end

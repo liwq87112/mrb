@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MMTCFeedbackViewController">
+            <connections>
+                <outlet property="emailTextField" destination="d8V-ug-lgo" id="8Jg-Ne-pv3"/>
+                <outlet property="scrollView" destination="tR0-cp-7qH" id="yhf-1a-4nR"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tR0-cp-7qH">
+                    <rect key="frame" x="20" y="260" width="280" height="268"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4g-rT-3Mz">
+                    <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="UGQ-wO-Tq3"/>
+                    </constraints>
+                    <state key="normal" title="提交反馈">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="submitClick:" destination="-1" eventType="touchUpInside" id="E8A-KB-ZsY"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="留下您的邮箱，我们会回复您的哦～" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8V-ug-lgo">
+                    <rect key="frame" x="20" y="205" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="UEl-Ej-DMt"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="d8V-ug-lgo" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="185" id="Bra-pB-DoQ"/>
+                <constraint firstItem="d8V-ug-lgo" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="DEk-cL-AWl"/>
+                <constraint firstItem="tR0-cp-7qH" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="FOi-Qs-2H9"/>
+                <constraint firstItem="C4g-rT-3Mz" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="T6m-s9-vXV"/>
+                <constraint firstItem="C4g-rT-3Mz" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="b4K-9c-KBT"/>
+                <constraint firstItem="tR0-cp-7qH" firstAttribute="top" secondItem="d8V-ug-lgo" secondAttribute="bottom" constant="15" id="dXo-WD-0lm"/>
+                <constraint firstAttribute="trailing" secondItem="tR0-cp-7qH" secondAttribute="trailing" constant="20" id="ke3-sF-sUr"/>
+                <constraint firstItem="C4g-rT-3Mz" firstAttribute="top" secondItem="tR0-cp-7qH" secondAttribute="bottom" id="nmL-jF-rS8"/>
+                <constraint firstItem="C4g-rT-3Mz" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="sRW-xI-qx4"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="d8V-ug-lgo" secondAttribute="trailing" constant="20" id="zRo-5M-vRf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>
